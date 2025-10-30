@@ -1,0 +1,73 @@
+#include<stdio.h>
+#define max 3
+
+int Queue[max],f=-1,r=-1;
+
+void main()
+{
+    int value,choice;
+
+    while(1)
+    {
+        printf("\n***Menu***\n");
+        printf("1.Enqueue\n 2.Dequeue\n 3.Display\n 4.Exit\n");
+        scanf("%d",&choice);
+
+        switch(choice)
+        {
+            case 1:printf("Enter value to insert:\n");
+            scanf("%d",&value);
+            Enqueue(value);
+            break;
+
+            case 2:Dequeue();
+            break;
+
+            case 3:Display();
+            break;
+
+            case 4:exit(0);
+            break;
+
+            default:printf("Invalid!!!");
+            break;
+        }
+    }
+
+}
+
+void Enqueue(int item)
+{
+    if (r==max-1)
+        printf("Overflow\n");
+    else
+    {
+        if (f==-1)
+        {
+            f=0;
+        }
+        r=r+1;
+        Queue[r]=item;
+        printf("Insertion successful\n");
+    }
+}
+
+void Dequeue()
+{
+    if (f==-1||f>r)
+        printf("Underflow\n");
+    else
+        printf("Deleted item:%d",Queue[f++]);
+}
+
+void Display()
+{
+    if(f==-1||f>r)
+        printf("Queue Empty\n");
+    printf("\n");
+    for (int i=0;i<=r;i++)
+    {
+        printf("%d",Queue[i]);
+        printf("\n");
+    }
+}
