@@ -57,7 +57,7 @@ NODE insert_front(NODE first)
     if (new_node==NULL)
     {
         printf("INSUFFICIENT MEMORY!!");
-        return;
+        return first;
     }
 
     printf("Enter data:");
@@ -87,7 +87,7 @@ NODE insert_rear(NODE first)
     if (new_node==NULL)
     {
         printf("INSUFFICIENT MEMORY!!");
-        return;
+        return first;
     }
 
     printf("Enter data:");
@@ -179,6 +179,7 @@ void display(NODE first)
     }
     printf("\n%d\n",cur->info);
 }
+
 
 
 
